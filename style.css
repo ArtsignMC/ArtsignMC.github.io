@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #202020;
+  color: white;
+}
+
+.sidebar {
+  width: 60px;
+  background-color: #181818;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  text-align: left;
+  padding: 10px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-left: 10px;
+  position: relative;
+  transition: background-color 0.3s, padding 0.3s;
+  padding: 10px;
+  border-radius: 50px;
+}
+.sidebar ul li a span.icon {
+  display: inline-block;
+  font-size: 20px;
+  transition: margin 0.3s, opacity 0.3s;
+}
+
+.sidebar ul li a span.text {
+  display: none;
+  margin-left: 10px;
+  transition: display 0.3s, opacity 0.3s, margin-left 0.3s;
+}
+
+.sidebar:hover ul li a span.text {
+  display: inline-block;
+}
+
+.sidebar ul li a:hover span.icon,
+.sidebar ul li a:hover span.text {
+  margin-left: 15px;
+}
+
+.sidebar:hover {
+  width: 200px;
+}
+
+.main-content {
+  margin-left: 80px;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* For the scrolling featured games */
+.scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.game-grid.scroll {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.game-item {
+  background-color: #333;
+  width: 300px;
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: transform 0.3s, background-color 0.3s;
+  background-size: cover;
+  background-position: center;
+}
+
+.game-item:hover {
+  transform: scale(1.05);
+  background-color: #444;
+}
+
+.new {
+  position: relative;
+}
+
+.new::before {
+  content: 'NEW';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e74c3c;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: white;
+}
